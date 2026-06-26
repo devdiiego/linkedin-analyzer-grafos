@@ -46,17 +46,8 @@ public class LinkedInAnalyzer {
     }
 
     // Missão 3: Grau de Separação
-    public int calcularGrauSeparacao(String nomeOrigem, String nomeDestino) {
-        return -1;
-    }
 
     // Missão 4: Rota de Maior Afinidade
-    public Grafo.ResultadoDijkstra obterRotaMaiorAfinidade(String nomeOrigem, String nomeDestino) {
-        return grafo.dijkstra(nomeOrigem, nomeDestino);
-    }
+
 
     // Missão 5: Mapear Sub-redes
-    public List<List<String>> mapearSubRedes() {
-        return Collections.emptyList();
-    }
-}
