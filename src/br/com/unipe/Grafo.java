@@ -78,20 +78,3 @@ public class Grafo {
     /**
      * Algoritmo clássico de Dijkstra para caminhos mínimos baseados em PESO (Afinidade)
      */
-    public ResultadoDijkstra dijkstra(String nomeOrigem, String nomeDestino) {
-        return new ResultadoDijkstra(-1, Collections.emptyList());
-    }
-
-    public static class ResultadoDijkstra {
-        private final int custo;
-        private final List<String> caminho;
-
-        public ResultadoDijkstra(int custo, List<String> caminho) {
-            this.custo = custo;
-            this.caminho = caminho;
-        }
-
-        public int getCusto() { return custo; }
-        public List<String> getCaminho() { return caminho; }
-    }
-}
