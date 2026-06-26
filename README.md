@@ -27,6 +27,7 @@ A classe `LinkedInAnalyzer` atua como o motor de análises da rede, implementand
    ```
 
 ## 👥 Equipe
-* **[Seu Nome]** - RGM: [Seu RGM]
-* **[Nome do Integrante]** - RGM: [RGM]
-* **[Nome do Integrante]** - RGM: [RGM]
+* **[Diego Feitosa]**
+* **[Diego Braga]** 
+* **[Lucas]**
+* **[Kleyton]**
