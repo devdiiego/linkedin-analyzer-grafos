@@ -48,6 +48,35 @@ public class LinkedInAnalyzer {
     // Missão 3: Grau de Separação
 
     // Missão 4: Rota de Maior Afinidade
-
+        public Grafo.ResultadoDijkstra obterRotaMaiorAfinidade(String nomeOrigem, String nomeDestino) {
+                return grafo.dijkstra(nomeOrigem, nomeDestino);
+            }
 
     // Missão 5: Mapear Sub-redes
+        public List<List<String>> mapearSubRedes() {
+                List<List<String>> subRedes = new ArrayList<>();
+                Set<Vertice> visitados = new HashSet<>();
+        
+                for (Vertice v : grafo.getVertices()) {
+                    if (!visitados.contains(v)) {
+                        List<String> componente = new ArrayList<>();
+                        dfsMapeamento(v, visitados, componente);
+                        Collections.sort(componente); // Ordenação apenas visual para o console
+                        subRedes.add(componente);
+                    }
+                }
+                return subRedes;
+            }
+        
+            private void dfsMapeamento(Vertice atual, Set<Vertice> visitados, List<String> componente) {
+                visitados.add(atual);
+                componente.add(atual.getNome());
+        
+                for (Aresta a : atual.getArestas()) {
+                    Vertice vizinho = a.getDestino();
+                    if (!visitados.contains(vizinho)) {
+                        dfsMapeamento(vizinho, visitados, componente);
+                    }
+                }
+            }
+        }
