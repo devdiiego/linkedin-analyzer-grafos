@@ -1,5 +1,3 @@
-na verdade, cola isso aqui:
-
 public ResultadoDijkstra dijkstra(String nomeOrigem, String nomeDestino) {
         Vertice origem = vertices.get(nomeOrigem.toLowerCase());
         Vertice destino = vertices.get(nomeDestino.toLowerCase());
