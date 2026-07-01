@@ -47,6 +47,41 @@ public class LinkedInAnalyzer {
 
     // Missão 3: Grau de Separação
 
+    public int calcularGrauSeparacao(String nomeOrigem, String nomeDestino) {
+        Optional<Vertice> origemOpt = grafo.encontraVertice(nomeOrigem);
+        Optional<Vertice> destinoOpt = grafo.encontraVertice(nomeDestino);
+
+        if (origemOpt.isEmpty() || destinoOpt.isEmpty()) return -1;
+
+        Vertice origem = origemOpt.get();
+        Vertice destino = destinoOpt.get();
+
+        if (origem.equals(destino)) return 0;
+
+        Queue<Vertice> fila = new LinkedList<>();
+        Map<Vertice, Integer> passos = new HashMap<>();
+
+        fila.add(origem);
+        passos.put(origem, 0);
+
+        while (!fila.isEmpty()) {
+            Vertice atual = fila.poll();
+            int passosAtuais = passos.get(atual);
+
+            if (atual.equals(destino)) return passosAtuais;
+
+            for (Aresta a : atual.getArestas()) {
+                Vertice vizinho = a.getDestino();
+                if (!passos.containsKey(vizinho)) {
+                    passos.put(vizinho, passosAtuais + 1);
+                    fila.add(vizinho);
+                }
+            }
+        }
+
+        return -1; // Caso sejam perfis totalmente isolados
+    }
+
     // Missão 4: Rota de Maior Afinidade
         public Grafo.ResultadoDijkstra obterRotaMaiorAfinidade(String nomeOrigem, String nomeDestino) {
                 return grafo.dijkstra(nomeOrigem, nomeDestino);
